@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mandelbrot</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <style>
+      body {
+        text-align: center;
+      }
+      canvas {
+        width: 640px;
+        height: 640px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="mandelbrot" width="1280" height="1280" />
+
+    <script type="text/javascript">
+      (function() {
+          var canvas = document.getElementById('mandelbrot');
+          var context = canvas.getContext('2d');
+
+          max_i = 200;
+
+          for (n = 0; n <= 1279; n++) {
+            for (m = 0; m <= 1279; m++) {
+              x0 = (n - 639) / 320;
+              y0 = (m - 639) / 320;
+
+              i = 0;
+              x = 0;
+              y = 0;
+
+              while (x * x + y * y < 2 * 2 && i < max_i) {
+                xtemp = x * x - y * y + x0
+                y = 2 * x * y + y0
+
+                x = xtemp
+
+                i++
+              }
+
+              if (i % 2 == 0) {
+                context.fillRect(n, m, 1, 1);
+              }
+            }
+          }
+      })();
+    </script>
+
+  </body>
+</html>
