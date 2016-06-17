@@ -4,4 +4,4 @@
 
 Mandelbrot set rendered using canvas and web workers.
 
-http://danbarber.me/experiments/canvas/mandelbrot.html
+https://danbarber.me/canvas/mandelbrot.html
